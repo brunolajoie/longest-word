@@ -7,10 +7,12 @@ on:
   pull_request:
     branches: [ master, main ]
 jobs:
-  build:
+  build-and-run-pytest:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    # First step (unnamed here) is to checkout to the branch that triggered the event
+    - uses: actions/checkout@v3
+    # Second step: install python 3.8
     - name: Set up Python 3.8
       uses: actions/setup-python@v2
       with:
