@@ -1,5 +1,6 @@
 import random
 import string
+import requests
 
 class Game:
     def __init__(self) -> list:
@@ -18,4 +19,12 @@ class Game:
                 letters.remove(letter)
             else:
                 return False
-        return True
+
+        is_english = self.__check_dictionary(word)
+        return is_english
+
+    @staticmethod
+    def __check_dictionary(word):
+        response = requests.get(f"https://wagon-dictionary.herokuapp.com/{word}")
+        json_response = response.json()
+        return json_response['found']
