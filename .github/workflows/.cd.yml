@@ -13,7 +13,6 @@ jobs:
     - id: 'auth'
       uses: 'google-github-actions/auth@v1'
       with:
-        service_account: 'gha-longest-word@bruno-bootcamp.iam.gserviceaccount.com'
-
+        credentials_json: '${{ secrets.GOOGLE_CREDENTIALS }}'
     - id: 'deploy'
       uses: 'google-github-actions/deploy-appengine@v1'
