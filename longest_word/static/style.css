@@ -12,7 +12,7 @@ body {
     width: 24px;
     display: inline-block;
     text-align: center;
-    background-color: #333;
+    background-color: rgb(2, 20, 214);
     color: #eee;
   }
   #form, #results {
