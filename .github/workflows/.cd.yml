@@ -1,0 +1,19 @@
+name: basic CD
+on:
+  push:
+    branches: [ master, main ]
+jobs:
+  deploy-to-app-engine:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: 'read'
+      id-token: 'write'
+
+    steps:
+    - id: 'auth'
+      uses: 'google-github-actions/auth@v1'
+      with:
+        service_account: 'gha-longest-word@bruno-bootcamp.iam.gserviceaccount.com'
+
+    - id: 'deploy'
+      uses: 'google-github-actions/deploy-appengine@v1'
