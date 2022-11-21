@@ -21,7 +21,8 @@ class Game:
                 letters.remove(letter)
             else:
                 return False
-        return self.__check_dictionary(word)
+        is_english = self.__check_dictionary(word)
+        return is_english
 
     @staticmethod
     def __check_dictionary(word):
